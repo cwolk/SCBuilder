@@ -1,0 +1,24 @@
+span[type="match"] {
+  color: red;
+}
+
+span[type="context"] {
+  color: DimGray;
+}
+
+
+.left-KWIC {
+  text-align: right;
+}
+
+td.center-KWIC {
+  color: red;
+}
+.contextTable td {
+    vertical-align: top;
+    padding: 2px;
+}
+
+.input_info {
+  color: cornflowerblue;
+}
