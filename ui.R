@@ -14,7 +14,11 @@ shinyUI(fluidPage(
 
   # Application title
   titlePanel("ShinyConc Builder"),
-
+  
+  tags$style(type = 'text/css', 
+             "footer img {width: 100%;max-width: 200px}"
+  ),
+  
   sidebarLayout(
     sidebarPanel(
       csvFileInput("corpusmeta", h3("Load CSV file")),
@@ -98,6 +102,14 @@ shinyUI(fluidPage(
           selectInput("Datacolselect", "Extra columns in Data View", 
                       choices=NULL, selected = NULL, multiple=TRUE),
         DT::dataTableOutput("table"))
-    )
-  )
-)))
+    ))
+),
+hr(),
+tags$footer(
+#div(class = "footer",
+    fluidRow(
+      column(4, img(src="jlu-logo-600.png")),
+      column(8, p("ShinyConc Builder (c) Christoph Wolk 2017. Presented by the University of Giessen.")))
+    #      includeHTML("footer.html")
+)
+))
