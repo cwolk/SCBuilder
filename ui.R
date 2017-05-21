@@ -21,7 +21,7 @@ shinyUI(fluidPage(
   
   sidebarLayout(
     sidebarPanel(
-      csvFileInput("corpusmeta", h3("Load CSV file")),
+      csvFileInput("corpusmeta", h3("Load Metadata (.csv)")),
       downloadButton("downloadApp", "Create App")
     ),
 
