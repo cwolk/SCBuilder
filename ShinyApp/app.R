@@ -34,7 +34,10 @@ ui <- shinyUI(fluidPage(
             searchContextOutput("searchContext", conf)),
           countModuleOutput("countTool", panel = "Count"),
           compareModuleOutput("compareTool", selectCorpus, conf, "Compare"),
-          id="mainTabset")))))
+          id="mainTabset"))),
+   hr(),
+   tagList(p("Built using ", a(href="http://shiny.rstudio.com/", "Shiny"),
+           " and ", a(href="http://shinyconc.de", "ShinyConc")))))
 
 server <- shinyServer(function(input, output,session) {
 
