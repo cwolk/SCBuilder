@@ -15,9 +15,10 @@ shinyServer(function(input, output, session) {
   config=reactiveValues()
   config$SearchTool <- list()
   config$Corpus <- list()
+  config$useSubmitButton <- TRUE
   
   observeEvent(input$appName, config$AppTitle <- input$appName)
-  observeEvent(input$submitButton, config$useSubmitButton <- input$submitButton)
+  #observeEvent(input$submitButton, config$useSubmitButton <- input$submitButton)
   
   observeEvent(input$KWICcolselect, 
                config$SearchTool$KWIC$DisplayExtraColumns <- input$KWICcolselect)

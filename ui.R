@@ -35,7 +35,7 @@ shinyUI(fluidPage(
         wellPanel(
           h3("Basic setup"),
           textInput("appName","App Name"),
-          checkboxInput("submitButton", "Use Submit Button", value=TRUE),
+#          checkboxInput("submitButton", "Use Submit Button", value=TRUE),
           radioButtons("corpustype", "Corpus type", choices=c(
             "Texts"="text",
             "Lines"="line",
