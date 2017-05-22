@@ -100,8 +100,10 @@ shinyUI(fluidPage(
           selectInput("KWICcolselect", "Extra columns in KWIC View", 
                       choices=NULL, selected = NULL, multiple=TRUE),
           selectInput("Datacolselect", "Extra columns in Data View", 
-                      choices=NULL, selected = NULL, multiple=TRUE),
-        DT::dataTableOutput("table"))
+                      choices=NULL, selected = NULL, multiple=TRUE)),
+        wellPanel(
+          h3("View Data"),
+          DT::dataTableOutput("table"))
     ))
 ),
 hr(),
