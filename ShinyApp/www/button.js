@@ -1,5 +1,5 @@
 $(document).keyup(function(event) {
-    if ($("#queryMain-searchterm").is(":focus") && (event.keyCode == 13)) {
-        $("#queryMain-submitButton").click();
+    if ($("#mainQueryField input:first-of-type").is(":focus") && (event.keyCode == 13)) {
+        $("#mainQueryField button:first-of-type").click();
     }
 });
