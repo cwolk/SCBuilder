@@ -36,8 +36,9 @@ ui <- shinyUI(fluidPage(
           compareModuleOutput("compareTool", selectCorpus, conf, "Compare"),
           id="mainTabset"))),
    hr(),
-   tagList(p("Built using ", a(href="http://shiny.rstudio.com/", "Shiny"),
-           " and ", a(href="http://shinyconc.de", "ShinyConc")))))
+   div(class="footer",
+       p("Built using ", a(href="http://shiny.rstudio.com/", "Shiny"),
+         " and ", a(href="http://shinyconc.de", "ShinyConc")))))
 
 server <- shinyServer(function(input, output,session) {
 
