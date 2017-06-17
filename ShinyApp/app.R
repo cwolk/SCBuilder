@@ -9,13 +9,10 @@ loadOrInstall(c("shiny", "stringr", "DT", "dplyr", "shinyBS", "yaml"))
 conf <- yaml.load_file("shinyconc.yaml")
 
 if (identical(conf$Corpus$Source, "custom"))
-    source("setup.R", local=TRUE) else {
-       corpus <- loadCorpus("corpus", read.csv("corpus/meta.csv",
-                                               stringsAsFactors=FALSE), 
-                             conf$Corpus$Source, conf$Corpus$Type, conf)
-       selectCorpus <- function(...) corpus
-}
-       
+  source("setup.R", local=TRUE) else {
+    getCachedCorpus(conf)
+  }
+
 ui <- shinyUI(fluidPage(
    tags$head(tags$link(rel = "stylesheet", type="text/css", href="style.css"),
              tags$script(src = "button.js")),
