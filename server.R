@@ -224,7 +224,16 @@ shinyServer(function(input, output, session) {
     write.csv(datafile(), file=paste0(z,"/ShinyApp/corpus/meta.csv"), 
               row.names = FALSE)
     config$SelectorOrder <- processSelectorOrder(input$selOrder)
-    cat(as.yaml(reactiveValuesToList(config)), file = 
+    config_out <- reactiveValuesToList(config)
+    ## Hackety hack hack TODO: properly expose this
+    if (config$Corpus$Type == "pair")
+      config_out[["ContextDisplay"]] = list(
+                        "Type"= "Multicolumns",
+                      "Columns"= list("Question"= "Q", "Answer"= "A"))
+    if (config$Corpus$Type == "text")
+      config_out[["ContextDisplay"]] = list(
+                        "Type"= "LocalContext")
+    cat(as.yaml(config_out), file = 
           paste0(z,"/ShinyApp/shinyconc.yaml"))
     oldwd <- getwd()
     setwd(z)
