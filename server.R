@@ -121,7 +121,8 @@ shinyServer(function(input, output, session) {
   output$dcolumns <- DT::renderDataTable(data.frame(column=dcolumns()),
                                          rownames=NULL, colnames=NULL,
                                          filter="none", selection="single",
-                                         options = list(dom = 't'))
+                                         options = list(dom = 't', 
+                                                        paging = FALSE))
   
   activeCol <- reactive({
     if (isTruthy(input$dcolumns_rows_selected) && 
